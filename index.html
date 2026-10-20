@@ -154,10 +154,10 @@ a{color:var(--blue);text-decoration:none;}
 .pb-imp .pb-head{color:#1B7A78;}
 .pb-desc{font-size:13.5px;color:var(--slate);line-height:1.55;}
 /* ── MAIN MENU ── */
-.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-34px;position:relative;z-index:5;}
+.menu{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:-34px;position:relative;z-index:5;}
 .menu-card{background:#fff;border-radius:14px;padding:22px 20px 18px;box-shadow:var(--sh2);border:1px solid var(--border);border-top:5px solid var(--blue);display:flex;flex-direction:column;gap:6px;color:var(--text);transition:.2s;position:relative;}
 .menu-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,40,85,.18);}
-.menu-card:nth-child(2){border-top-color:#C9A227;} .menu-card:nth-child(3){border-top-color:#24A29F;} .menu-card:nth-child(4){border-top-color:#E89830;}
+.menu-card:nth-child(2){border-top-color:#C9A227;} .menu-card:nth-child(3){border-top-color:#24A29F;} .menu-card:nth-child(4){border-top-color:#E89830;} .menu-card:nth-child(5){border-top-color:#8BBC4D;}
 .menu-num{position:absolute;top:14px;right:16px;font-size:12px;font-weight:700;color:var(--muted);}
 .menu-ic{font-size:30px;line-height:1;}
 .menu-card h3{font-size:18px;font-weight:700;color:var(--navy);line-height:1.25;margin-top:4px;}
@@ -176,6 +176,7 @@ a{color:var(--blue);text-decoration:none;}
 .rung.lc .rung-l{background:var(--blue-l);color:var(--navy);}
 .rung.ld{background:#FFFAEB;border-color:#E6C65C;} .rung.ld .rung-l{background:linear-gradient(135deg,#E8C547,#C9A227);color:#3D2E05;}
 .rung.le{background:#F5F6F8;border-color:#B9C0C7;} .rung.le .rung-l{background:linear-gradient(135deg,#C9CED3,#8E979F);color:#1F2429;}
+@media(max-width:1100px){.menu{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:960px){.menu{grid-template-columns:repeat(2,1fr);}.ladder{grid-template-columns:1fr;}}
 @media(max-width:560px){.menu{grid-template-columns:1fr;margin-top:-20px;}}
 /* ── PER-CARD LEVELS ── */
@@ -240,6 +241,34 @@ html{scroll-padding-top:150px;}
 .lvl-col.le{background:#F5F6F8;} .lvl-col.le h4{background:linear-gradient(135deg,#C9CED3,#8E979F);color:#1F2429;}
 .lvl-tools{padding:0 14px 14px;} .lvl-tools a{font-size:12.5px;font-weight:700;color:var(--blue);cursor:pointer;}
 @media(max-width:960px){.lvl-grid{grid-template-columns:1fr;}}
+/* ── NETWORK PULSE ── */
+.np-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;}
+.np-stat{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--sh);padding:18px 20px;border-top:4px solid #24A29F;}
+.np-stat .big{font-size:30px;font-weight:800;color:var(--navy);line-height:1.1;}
+.np-stat .lab{font-size:13px;color:var(--slate);margin-top:4px;line-height:1.45;}
+.np-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.np-card{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--sh);padding:18px 20px;}
+.np-card h3{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:2px;}
+.np-card .sub{font-size:12.5px;color:var(--muted);margin-bottom:12px;}
+.np-cols{display:flex;align-items:flex-end;justify-content:space-around;gap:12px;height:180px;border-bottom:2px solid var(--border);padding:0 6px;}
+.np-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.np-col .v{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;text-align:center;line-height:1.2;}
+.np-col .v small{display:block;font-weight:400;color:var(--muted);font-size:11px;}
+.np-col .b{width:100%;max-width:64px;border-radius:6px 6px 0 0;min-height:4px;}
+.np-xl{display:flex;justify-content:space-around;gap:12px;padding:6px 6px 0;}
+.np-xl div{flex:1;text-align:center;font-size:12px;font-weight:700;color:var(--slate);}
+.np-bars{display:flex;flex-direction:column;gap:7px;}
+.np-row{display:grid;grid-template-columns:150px 1fr 42px;align-items:center;gap:8px;font-size:12.5px;color:var(--slate);}
+.np-track{background:var(--bg);border-radius:5px;height:14px;overflow:hidden;}
+.np-fill{height:100%;border-radius:5px;}
+.np-row .pct{font-weight:700;color:var(--navy);text-align:right;}
+.np-h4{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:4px 0 6px;}
+.np-take{margin-top:14px;background:#fff;border:1px solid var(--border);border-left:5px solid #24A29F;border-radius:0 12px 12px 0;padding:16px 20px;box-shadow:var(--sh);}
+.np-take h3{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.np-take ul{padding-left:18px;font-size:13.5px;color:var(--slate);line-height:1.55;}
+.np-take li{margin-bottom:4px;}
+.np-foot{font-size:12px;color:var(--muted);font-style:italic;margin-top:10px;}
+@media(max-width:860px){.np-stats,.np-grid{grid-template-columns:1fr;}.np-row{grid-template-columns:120px 1fr 40px;}}
 /* ── DRAFT WATERMARK ── */
 .draft-wm{position:fixed;inset:0;pointer-events:none;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .draft-wm span{font-family:Arial,Helvetica,sans-serif;font-size:min(22vw,260px);font-weight:900;letter-spacing:.08em;color:rgba(194,58,61,.10);transform:rotate(-30deg);white-space:nowrap;user-select:none;}
@@ -266,6 +295,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;paddi
     <a href="#levels" data-target="levels" onclick="jumpTo('levels');return false;">Adoption Levels</a>
     <a href="#intro" data-target="intro" onclick="jumpTo('intro');return false;">Intro Resources</a>
     <a href="#tools" data-target="tools" onclick="jumpTo('tools');return false;">OA Tools</a>
+    <a href="#network" data-target="network" onclick="jumpTo('network');return false;">Network Pulse</a>
   </nav>
   <div class="ex-search"><svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input placeholder="Search Exchange…"></div>
 </header>
@@ -298,6 +328,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;paddi
     <a class="menu-card" href="#tools" onclick="jumpTo('tools');return false;">
       <div class="menu-num">4</div><div class="menu-ic">🧰</div>
       <h3>OA Tools</h3><p>Ready to implement? Find the tools for each service area by phase, for Gold or Platinum.</p><span class="menu-go">Go →</span>
+    </a>
+    <a class="menu-card" href="#network" onclick="jumpTo('network');return false;">
+      <div class="menu-num">5</div><div class="menu-ic">📈</div>
+      <h3>Network Pulse</h3><p>See how the Goodwill network is doing with OA adoption, based on the March 2026 survey.</p><span class="menu-go">Go →</span>
     </a>
   </div>
   <!-- 1. WHAT IS THE OA -->
@@ -779,7 +813,42 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;paddi
       </div>
     </div>
   </div>
-  <div class="back-menu"><a href="#menu" onclick="jumpTo('menu');return false;">↑ Back to menu</a></div>
+  <!-- 5. NETWORK PULSE -->
+  <section id="network" class="block">
+    <div class="sec-head"><div class="sec-label">5 · Network Pulse</div><h2>How the Network Is Doing</h2></div>
+    <p class="sec-desc">A snapshot of OA adoption across the Goodwill network, from the OA Adoption Survey in March 2026.</p>
+    <div class="np-stats">
+      <div class="np-stat"><div class="big">114 of 148</div><div class="lab">members responded to the survey (77% of the network)</div></div>
+      <div class="np-stat"><div class="big">51 members</div><div class="lab">met the Gold or Platinum level, based on their survey answers</div></div>
+      <div class="np-stat"><div class="big">48 members</div><div class="lab">are closer to adoption than they thought they were</div></div>
+    </div>
+    <div class="np-grid">
+      <div class="np-card">
+        <h3>Where members are today</h3>
+        <div class="sub">Number of members at each adoption level (114 respondents)</div>
+        <div class="np-cols"><div class="np-col"><div class="v">2<small>2%</small></div><div class="b" style="height:4px;background:#B9C0C7;"></div></div><div class="np-col"><div class="v">61<small>54%</small></div><div class="b" style="height:130px;background:#3A94CC;"></div></div><div class="np-col"><div class="v">46<small>40%</small></div><div class="b" style="height:98px;background:#C9A227;"></div></div><div class="np-col"><div class="v">5<small>4%</small></div><div class="b" style="height:11px;background:#8E979F;"></div></div></div>
+        <div class="np-xl"><div>Non-adopter</div><div>Partial</div><div>Gold</div><div>Platinum</div></div>
+      </div>
+      <div class="np-card">
+        <h3>Practices members use most and least</h3>
+        <div class="sub">Share of respondents at the Gold or Platinum level for each practice</div>
+        <div class="np-h4" style="color:#1B7A78;">Most adopted</div>
+        <div class="np-bars"><div class="np-row"><span>Wraparound services</span><div class="np-track"><div class="np-fill" style="width:92%;background:#24A29F;"></div></div><span class="pct">92%</span></div><div class="np-row"><span>Job search / prep</span><div class="np-track"><div class="np-fill" style="width:92%;background:#24A29F;"></div></div><span class="pct">92%</span></div><div class="np-row"><span>Registration / intake</span><div class="np-track"><div class="np-fill" style="width:90%;background:#24A29F;"></div></div><span class="pct">90%</span></div><div class="np-row"><span>Evaluating impact &amp; metrics</span><div class="np-track"><div class="np-fill" style="width:88%;background:#24A29F;"></div></div><span class="pct">88%</span></div><div class="np-row"><span>Job placement</span><div class="np-track"><div class="np-fill" style="width:84%;background:#24A29F;"></div></div><span class="pct">84%</span></div></div>
+        <div class="np-h4" style="color:#A35F0E;margin-top:12px;">Room to grow</div>
+        <div class="np-bars"><div class="np-row"><span>Career navigator training</span><div class="np-track"><div class="np-fill" style="width:32%;background:#E89830;"></div></div><span class="pct">32%</span></div><div class="np-row"><span>Digital skills training</span><div class="np-track"><div class="np-fill" style="width:32%;background:#E89830;"></div></div><span class="pct">32%</span></div><div class="np-row"><span>Digital skills assessment</span><div class="np-track"><div class="np-fill" style="width:28%;background:#E89830;"></div></div><span class="pct">28%</span></div><div class="np-row"><span>Referral technology</span><div class="np-track"><div class="np-fill" style="width:25%;background:#E89830;"></div></div><span class="pct">25%</span></div><div class="np-row"><span>Basic education assessment</span><div class="np-track"><div class="np-fill" style="width:21%;background:#E89830;"></div></div><span class="pct">21%</span></div><div class="np-row"><span>Alumni engagement</span><div class="np-track"><div class="np-fill" style="width:12%;background:#E89830;"></div></div><span class="pct">12%</span></div></div>
+      </div>
+    </div>
+    <div class="np-take">
+      <h3>What we learned</h3>
+      <ul>
+        <li>Members believe in the OA. What slows them down is staff capacity, unclear roles, funding limits, and data systems.</li>
+        <li>Many members are already closer to Gold than they realize.</li>
+        <li>Gold and Platinum members are ready to share what works, and peer learning is a big opportunity.</li>
+      </ul>
+    </div>
+    <p class="np-foot">Source: OA Adoption Survey, March 2026. Results are self-reported and have not been validated. The survey used the earlier list of 25 OA requirements.</p>
+    <div class="back-menu"><a href="#menu" onclick="jumpTo('menu');return false;">↑ Back to menu</a></div>
+  </section>
 </div><!-- end .wrap -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <footer>Goodwill Industries International · Goodwill Exchange · Opportunity Accelerator · Prototype v2 · Not the live page</footer>
@@ -807,7 +876,7 @@ function setTier(tier,btn){
     card.style.opacity=fade?'0.38':''; card.style.pointerEvents=fade?'none':'';
   });
 }
-const navIds=['top','about','levels','intro','tools'];
+const navIds=['top','about','levels','intro','tools','network'];
 function markNav(){
   let cur='top';
   navIds.forEach(id=>{const el=document.getElementById(id); if(el&&el.getBoundingClientRect().top-120<=0) cur=id;});
