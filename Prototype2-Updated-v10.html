@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRAFT | Goodwill Opportunity Accelerator | Exchange</title>
+<style>
+:root {
+  --navy:    #002855;
+  --blue:    #00539F;
+  --blue-m:  #3A94CC;
+  --blue-l:  #C4DFF2;
+  --blue-xl: #EAF3FA;
+  --teal:    #1B7A78;
+  --green:   #1B7A78;
+  --green-l: #E8F6F5;
+  --amber:   #92400E;
+  --amber-l: #FEF3C7;
+  --slate:   #3E4446;
+  --muted:   #52585A;
+  --border:  #E8E8E8;
+  --bg:      #F5F6F6;
+  --white:   #FFFFFF;
+  --text:    #1F2426;
+  --ess:     #9A7412;
+  --ess-l:   #FBEFC4;
+  --hf:      #4F5861;
+  --hf-l:    #E6E9EC;
+  --opt:     #0F766E;
+  --opt-l:   #E8F6F5;
+  --r:10px;
+  --sh: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(28,63,110,.08);
+  --sh2: 0 4px 12px rgba(0,0,0,.08), 0 12px 32px rgba(28,63,110,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;}
+img{max-width:100%;}
+a{color:var(--blue);text-decoration:none;}
+/* ── PROTOTYPE BANNER ── */
+.proto{background:#FEF08A;border-bottom:2px solid #CA8A04;padding:8px 20px;text-align:center;font-size:12.5px;font-weight:600;color:#78350F;position:sticky;top:0;z-index:300;letter-spacing:.02em;}
+.proto span{font-weight:400;opacity:.85;margin-left:6px;}
+/* ── EXCHANGE HEADER ── */
+.ex-header{background:var(--navy);height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:34px;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.ex-brand{display:flex;align-items:center;gap:10px;color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.ex-brand .g{width:26px;height:26px;background:white;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:var(--navy);font-weight:600;}
+.ex-nav{display:flex;gap:2px;}
+.ex-nav a{color:rgba(255,255,255,.65);font-size:13px;padding:6px 11px;border-radius:5px;transition:.2s;}
+.ex-nav a:hover,.ex-nav a.on{color:#fff;background:rgba(255,255,255,.12);}
+.ex-search{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 14px;}
+.ex-search input{background:transparent;border:none;outline:none;color:#fff;font-size:13px;width:160px;}
+.ex-search input::placeholder{color:rgba(255,255,255,.45);}
+/* ── HERO ── */
+.hero{background:linear-gradient(90deg,#002855 0%,#00539F 100%);padding:52px 48px 74px;position:relative;overflow:hidden;}
+.hero::before,.hero::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,.04);}
+.hero::before{width:500px;height:500px;right:-100px;top:-150px;}
+.hero::after{width:300px;height:300px;left:-80px;bottom:-120px;}
+.hero-inner{max-width:900px;position:relative;z-index:1;margin:0 auto;}
+.hero-crumb{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:14px;letter-spacing:.04em;}
+.hero-crumb span{color:rgba(255,255,255,.9);}
+.hero h1{font-family:Arial,Helvetica,sans-serif;font-size:clamp(30px,4.5vw,52px);font-weight:600;line-height:1.08;color:#fff;margin-bottom:12px;letter-spacing:-.02em;}
+.hero h1 em{font-style:italic;font-weight:300;color:rgba(255,255,255,.85);}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.82);max-width:620px;line-height:1.65;margin-bottom:26px;}
+.hero-meta{display:flex;gap:20px;margin-top:24px;flex-wrap:wrap;}
+.hero-badge{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,.9);}
+/* ── PAGE WRAP ── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px 100px;}
+/* ── SECTION HEADS ── */
+.sec-head{margin-top:56px;margin-bottom:6px;}
+.sec-label{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
+.sec-head h2{font-family:Arial,Helvetica,sans-serif;font-size:28px;font-weight:600;color:var(--navy);letter-spacing:-.01em;}
+.sec-desc{color:var(--muted);font-size:14.5px;max-width:740px;line-height:1.65;margin-top:6px;margin-bottom:24px;}
+/* ── PHASE TABS ── */
+.phase-nav{position:sticky;top:84px;z-index:100;background:var(--bg);padding:12px 0;margin-top:32px;}
+.phase-nav-inner{display:flex;gap:4px;background:#fff;border-radius:12px;padding:8px;box-shadow:var(--sh);flex-wrap:wrap;}
+.ptab{flex:1;min-width:120px;text-align:center;padding:10px 10px;border-radius:8px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:.2s;border:1.5px solid transparent;white-space:nowrap;background:transparent;}
+.ptab:hover{background:var(--blue-xl);color:var(--navy);}
+.ptab.on{background:var(--blue);color:#fff;}
+.ptab .n{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);font-size:10px;font-weight:700;margin-right:4px;}
+.ptab .ico{font-size:14px;margin-right:3px;}
+/* ── ADOPTION TOGGLE ── */
+.tier-bar{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:24px;flex-wrap:wrap;}
+.tier-bar .lbl{font-size:13px;font-weight:600;color:var(--slate);margin-right:4px;}
+.tier-btn{display:flex;align-items:center;gap:6px;padding:7px 16px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:.2s;}
+.tier-btn.ess{background:var(--ess-l);color:var(--ess);border-color:var(--ess-l);}
+.tier-btn.ess.on{background:linear-gradient(135deg,#D4AF37,#9A7412);color:#fff;border-color:var(--ess);}
+.tier-btn.hf{background:var(--hf-l);color:var(--hf);border-color:var(--hf-l);}
+.tier-btn.hf.on{background:linear-gradient(135deg,#9AA3AB,#4F5861);color:#fff;border-color:var(--hf);}
+.tier-info{font-size:12.5px;color:var(--muted);margin-left:auto;}
+/* ── CONTENT PANELS ── */
+.panel{display:none;}
+.panel.on{display:block;}
+/* ── CARDS ── */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.card{background:#fff;border-radius:var(--r);padding:22px 20px 18px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--sh);border:1px solid var(--border);transition:.22s;position:relative;overflow:hidden;}
+.card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-m));transform:scaleX(0);transform-origin:left;transition:.22s;}
+.card:hover{box-shadow:var(--sh2);transform:translateY(-2px);}
+.card:hover::after{transform:scaleX(1);}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.card-num{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.card h3{font-size:15px;font-weight:700;color:var(--navy);line-height:1.3;}
+.card .desc{font-size:13.5px;color:var(--slate);line-height:1.55;flex:1;}
+.card-tiers{display:flex;gap:5px;flex-wrap:wrap;margin-top:2px;}
+.tier-pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;letter-spacing:.04em;}
+.tp-ess{background:var(--ess-l);color:var(--ess);}
+.tp-hf{background:var(--hf-l);color:var(--hf);}
+.tp-opt{background:var(--opt-l);color:var(--opt);}
+.card-footer{margin-top:10px;display:flex;flex-direction:column;gap:7px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;transition:.18s;cursor:pointer;border:none;width:fit-content;}
+.btn-live{background:var(--blue);color:#fff;}
+.btn-live:hover{background:var(--navy);}
+.btn-brief{background:#fff;color:var(--blue);border:1.5px solid var(--blue);}
+.btn-brief:hover{background:var(--blue);color:#fff;}
+.btn-tbd{background:var(--bg);color:var(--muted);border:1.5px solid var(--border);}
+.btn-dev{background:#F1F5F9;color:#94A3B8;border:1.5px dashed #CBD5E1;cursor:default;}
+.status-dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block;}
+/* ── INTRO RESOURCES ── */
+.intro-strip{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;margin-top:0;}
+.intro-strip-head{background:var(--navy);padding:20px 28px;display:flex;align-items:center;gap:14px;}
+.intro-strip-head h2{font-family:Arial,Helvetica,sans-serif;font-size:22px;color:#fff;font-weight:600;}
+.intro-strip-head p{font-size:13.5px;color:rgba(255,255,255,.75);margin-top:3px;}
+.res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
+.res-item{background:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px;transition:.18s;}
+.res-item:hover{background:var(--blue-xl);}
+.res-ico{width:34px;height:34px;border-radius:8px;background:var(--blue-xl);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.res-info{flex:1;min-width:0;}
+.res-name{font-size:14px;font-weight:600;color:var(--navy);}
+.res-note{font-size:12px;color:var(--muted);margin-top:1px;}
+.res-action{flex-shrink:0;}
+.res-action a{font-size:12px;font-weight:600;color:var(--blue);padding:5px 12px;border-radius:6px;border:1px solid var(--blue-l);transition:.18s;}
+.res-action a:hover{background:var(--blue);color:#fff;}
+.res-action .tbd{color:var(--amber);border-color:#FDE68A;background:var(--amber-l);pointer-events:none;font-size:12px;font-weight:600;padding:5px 10px;border-radius:6px;border:1px solid;}
+.res-action .upd{color:var(--opt);border-color:#9ED8D6;background:var(--opt-l);font-size:12px;font-weight:600;padding:5px 10px;border-radius:6px;border:1px solid;}
+/* ── OBJECTIVES ── */
+.obj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:0;}
+.obj{background:#fff;border-radius:var(--r);padding:20px;display:flex;gap:14px;border:1px solid var(--border);box-shadow:var(--sh);transition:.2s;}
+.obj:hover{box-shadow:var(--sh2);}
+.obj-icon{width:40px;height:40px;border-radius:10px;background:var(--blue-xl);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.obj-body strong{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.obj-body p{font-size:13.5px;color:var(--slate);line-height:1.5;}
+/* ── PHASE INTRO BANNER ── */
+.phase-banner{border-radius:12px;padding:20px 24px;margin-bottom:22px;display:flex;align-items:flex-start;gap:16px;}
+.pb-org{background:#EAF3FA;border:1px solid #A9CDEB;}
+.pb-1{background:#E8F6F5;border:1px solid #9ED8D6;}
+.pb-2{background:#F1F7E8;border:1px solid #C5DFA3;}
+.pb-3{background:#FDF3E5;border:1px solid #F4CB92;}
+.pb-imp{background:#E8F6F5;border:1px solid #9ED8D6;}
+.pb-icon{font-size:32px;flex-shrink:0;}
+.pb-head{font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:600;margin-bottom:4px;}
+.pb-org .pb-head{color:#00539F;}
+.pb-1 .pb-head{color:#1B7A78;}
+.pb-2 .pb-head{color:#4E7A22;}
+.pb-3 .pb-head{color:#A35F0E;}
+.pb-imp .pb-head{color:#1B7A78;}
+.pb-desc{font-size:13.5px;color:var(--slate);line-height:1.55;}
+/* ── MAIN MENU ── */
+.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-34px;position:relative;z-index:5;}
+.menu-card{background:#fff;border-radius:14px;padding:22px 20px 18px;box-shadow:var(--sh2);border:1px solid var(--border);border-top:5px solid var(--blue);display:flex;flex-direction:column;gap:6px;color:var(--text);transition:.2s;position:relative;}
+.menu-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,40,85,.18);}
+.menu-card:nth-child(2){border-top-color:#C9A227;} .menu-card:nth-child(3){border-top-color:#24A29F;} .menu-card:nth-child(4){border-top-color:#E89830;}
+.menu-num{position:absolute;top:14px;right:16px;font-size:12px;font-weight:700;color:var(--muted);}
+.menu-ic{font-size:30px;line-height:1;}
+.menu-card h3{font-size:18px;font-weight:700;color:var(--navy);line-height:1.25;margin-top:4px;}
+.menu-card p{font-size:13.5px;color:var(--slate);line-height:1.5;flex:1;}
+.menu-go{font-size:13px;font-weight:700;color:var(--blue);margin-top:6px;}
+.block{padding-top:8px;}
+.about-lead{font-size:18px;line-height:1.6;color:var(--text);max-width:820px;margin:8px 0 6px;background:#fff;border-left:5px solid var(--blue);border-radius:0 10px 10px 0;padding:16px 20px;box-shadow:var(--sh);}
+.sub-h{font-size:20px;font-weight:700;color:var(--navy);margin-top:34px;margin-bottom:2px;}
+.back-menu{text-align:right;margin-top:14px;}
+.back-menu a{font-size:12.5px;font-weight:700;color:var(--blue);cursor:pointer;}
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:4px;}
+.rung{border-radius:10px;padding:12px 12px;display:flex;gap:10px;align-items:flex-start;border:1px solid var(--border);background:#fff;}
+.rung-l{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;background:#E8E8E8;color:var(--slate);}
+.rung strong{font-size:13.5px;color:var(--navy);display:block;margin-bottom:2px;}
+.rung p{font-size:12.5px;color:var(--slate);line-height:1.45;}
+.rung.lc .rung-l{background:var(--blue-l);color:var(--navy);}
+.rung.ld{background:#FFFAEB;border-color:#E6C65C;} .rung.ld .rung-l{background:linear-gradient(135deg,#E8C547,#C9A227);color:#3D2E05;}
+.rung.le{background:#F5F6F8;border-color:#B9C0C7;} .rung.le .rung-l{background:linear-gradient(135deg,#C9CED3,#8E979F);color:#1F2429;}
+@media(max-width:960px){.menu{grid-template-columns:repeat(2,1fr);}.ladder{grid-template-columns:1fr;}}
+@media(max-width:560px){.menu{grid-template-columns:1fr;margin-top:-20px;}}
+/* ── PER-CARD LEVELS ── */
+html{scroll-padding-top:150px;}
+.lvl-more{margin-top:4px;border:1px solid var(--border);border-radius:7px;background:var(--bg);}
+.lvl-more summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--blue);padding:7px 10px;list-style:none;}
+.lvl-more summary::-webkit-details-marker{display:none;}
+.lvl-more summary::before{content:'▸ ';} .lvl-more[open] summary::before{content:'▾ ';}
+.lvl-list{padding:2px 10px 10px;display:flex;flex-direction:column;gap:6px;}
+.lvl-row{font-size:12.5px;line-height:1.45;color:var(--slate);border-radius:6px;padding:6px 8px;background:#fff;}
+.lvl-row b{display:block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1px;}
+.lvl-row.la b{color:var(--muted);} .lvl-row.lb b{color:var(--slate);} .lvl-row.lc b{color:var(--blue);}
+.lvl-row.ld b{color:var(--ess);} .lvl-row.le b{color:var(--hf);}
+.lvl-row.ld{background:var(--ess-l);border-left:4px solid #D4AF37;} .lvl-row.le{background:var(--hf-l);border-left:4px solid #8E979F;}
+.lvl-note{font-size:11.5px;color:var(--muted);font-style:italic;padding:0 2px;}
+.tier-btn.ess{border-color:#E6C65C;} .tier-btn.hf{border-color:#B9C0C7;}
+.tp-ess{border:1px solid #E6C65C;} .tp-hf{border:1px solid #B9C0C7;}
+/* ── FRAMEWORK VISUAL ── */
+.fwv{background:#fff;border-radius:14px;border:1px solid var(--border);box-shadow:var(--sh);padding:26px 24px 24px;margin-top:8px;}
+.fwv-org{background:#EAF3FA;border:1px solid #A9CDEB;border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:center;}
+.fwv-org .ic{font-size:30px;flex-shrink:0;}
+.fwv-tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px;}
+.fwv-org .fwv-tag,.fwv-org h3{color:#00539F;}
+.fwv-org h3,.fwv-ph h3{font-size:19px;font-weight:700;line-height:1.2;margin-bottom:4px;}
+.fwv-org p,.fwv-ph p{font-size:13.5px;color:var(--slate);line-height:1.5;}
+.fwv-down{text-align:center;font-size:20px;color:var(--muted);line-height:1;margin:8px 0;}
+.fwv-phases{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr;align-items:stretch;}
+.fwv-arrow{display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted);}
+.fwv-ph{border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;}
+.fwv-ph .ic{font-size:26px;}
+.fwv-ph.p1{background:#E8F6F5;border:1px solid #9ED8D6;} .fwv-ph.p1 h3,.fwv-ph.p1 .fwv-tag,.fwv-ph.p1 a{color:#1B7A78;}
+.fwv-ph.p2{background:#F1F7E8;border:1px solid #C5DFA3;} .fwv-ph.p2 h3,.fwv-ph.p2 .fwv-tag,.fwv-ph.p2 a{color:#4E7A22;}
+.fwv-ph.p3{background:#FDF3E5;border:1px solid #F4CB92;} .fwv-ph.p3 h3,.fwv-ph.p3 .fwv-tag,.fwv-ph.p3 a{color:#A35F0E;}
+.fwv-ph a{margin-top:auto;padding-top:6px;font-size:12.5px;font-weight:700;cursor:pointer;}
+.fwv-org a{font-size:12.5px;font-weight:700;color:#00539F;cursor:pointer;white-space:nowrap;margin-left:auto;}
+.fwv-out{border-radius:12px;overflow:hidden;border:2px solid #C23A3D;background:#FCEDED;}
+.fwv-out-head{background:linear-gradient(90deg,#C23A3D,#DF4E51);color:#fff;text-align:center;padding:12px 16px;font-size:18px;font-weight:700;letter-spacing:.02em;}
+.fwv-out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px;}
+.fwv-out-item{background:#fff;border-left:5px solid #DF4E51;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:700;color:#8E2629;}
+@media(max-width:860px){.fwv-phases{grid-template-columns:1fr;}.fwv-arrow{transform:rotate(90deg);padding:4px 0;}.fwv-out-grid{grid-template-columns:repeat(2,1fr);}.fwv-org{flex-wrap:wrap;}}
+@media(max-width:520px){.fwv-out-grid{grid-template-columns:1fr;}}
+/* ── PHASE DROPDOWNS ── */
+.lvl-acc{display:flex;flex-direction:column;gap:10px;}
+.lvl-ph{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--sh);overflow:hidden;}
+.lvl-ph summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 18px;font-weight:700;color:var(--navy);font-size:15.5px;}
+.lvl-ph summary::-webkit-details-marker{display:none;}
+.lvl-ph summary .chev{margin-left:auto;font-size:13px;color:var(--blue);font-weight:700;}
+.lvl-ph summary .chev::after{content:'Show levels ▾';} .lvl-ph[open] summary .chev::after{content:'Hide levels ▴';}
+.lvl-ph summary .sub{font-weight:400;font-size:12.5px;color:var(--muted);}
+.lvl-ph summary .ic{font-size:20px;}
+.lvl-ph.org summary{border-left:5px solid #00539F;} .lvl-ph.p1 summary{border-left:5px solid #1B7A78;}
+.lvl-ph.p2 summary{border-left:5px solid #4E7A22;} .lvl-ph.p3 summary{border-left:5px solid #A35F0E;}
+.lvl-ph[open] summary{border-bottom:1px solid var(--border);}
+.lvl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:14px;}
+.lvl-col{border-radius:8px;padding:10px 12px;font-size:13px;line-height:1.5;color:var(--slate);}
+.lvl-col h4{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px;padding:5px 8px;border-radius:5px;text-align:center;}
+.lvl-col ul{margin:0;padding-left:16px;} .lvl-col li{margin-bottom:3px;}
+.lvl-col.la{background:#F8FAFC;} .lvl-col.la h4{background:#E8E8E8;color:var(--slate);}
+.lvl-col.lb{background:#F1F5F9;} .lvl-col.lb h4{background:#CBD5E1;color:var(--slate);}
+.lvl-col.lc{background:#F2F8FE;} .lvl-col.lc h4{background:var(--blue-l);color:var(--navy);}
+.lvl-col.ld{background:#FFFAEB;} .lvl-col.ld h4{background:linear-gradient(135deg,#E8C547,#C9A227);color:#3D2E05;}
+.lvl-col.le{background:#F5F6F8;} .lvl-col.le h4{background:linear-gradient(135deg,#C9CED3,#8E979F);color:#1F2429;}
+.lvl-tools{padding:0 14px 14px;} .lvl-tools a{font-size:12.5px;font-weight:700;color:var(--blue);cursor:pointer;}
+@media(max-width:960px){.lvl-grid{grid-template-columns:1fr;}}
+/* ── DRAFT WATERMARK ── */
+.draft-wm{position:fixed;inset:0;pointer-events:none;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.draft-wm span{font-family:Arial,Helvetica,sans-serif;font-size:min(22vw,260px);font-weight:900;letter-spacing:.08em;color:rgba(194,58,61,.10);transform:rotate(-30deg);white-space:nowrap;user-select:none;}
+@media print{.draft-wm{position:fixed;}.draft-wm span{color:rgba(194,58,61,.15);}}
+/* ── BACK TO TOP ── */
+#btt{position:fixed;bottom:24px;right:24px;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh2);cursor:pointer;opacity:0;transition:.3s;z-index:999;font-size:16px;border:none;}
+#btt.show{opacity:1;}
+#btt:hover{background:var(--blue);transform:translateY(-2px);}
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:22px;font-size:13px;}
+/* ── RESP ── */
+@media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr);}.obj-grid{grid-template-columns:1fr;}.res-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}.hero{padding:36px 20px 28px;}.wrap{padding:0 16px 60px;}.ex-nav,.ex-search{display:none;}.ptab{min-width:80px;font-size:11px;}.phase-nav{top:50px;}}
+</style>
+</head>
+<body>
+<div class="draft-wm" aria-hidden="true"><span>DRAFT</span></div>
+<div class="proto">⚠ PROTOTYPE: Not the live page.</div>
+<header class="ex-header">
+  <div class="ex-brand"><div class="g">g</div>Goodwill Exchange</div>
+  <nav class="ex-nav">
+    <a href="#top" data-target="top" onclick="jumpTo('top');return false;">Home</a>
+    <a href="#about" data-target="about" onclick="jumpTo('about');return false;">What is the OA?</a>
+    <a href="#levels" data-target="levels" onclick="jumpTo('levels');return false;">Adoption Levels</a>
+    <a href="#intro" data-target="intro" onclick="jumpTo('intro');return false;">Intro Resources</a>
+    <a href="#tools" data-target="tools" onclick="jumpTo('tools');return false;">OA Tools</a>
+  </nav>
+  <div class="ex-search"><svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input placeholder="Search Exchange…"></div>
+</header>
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-crumb">Goodwill® Exchange → Resources → Mission Resources→ <span>Opportunity Accelerator</span></div>
+    <h1>Goodwill Opportunity<br><em>Accelerator</em>®</h1>
+    <p class="hero-sub">Your one-stop hub for learning about the OA and putting it into practice. Choose where you'd like to start below.</p>
+    <div class="hero-meta">
+      <a href="https://sandra-smart.github.io/OA-Service-Delivery-Areas/" class="hero-badge" target="_blank">📋 21 Service Areas</a>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <!-- MAIN MENU -->
+  <div class="menu" id="menu">
+    <a class="menu-card" href="#about" onclick="jumpTo('about');return false;">
+      <div class="menu-num">1</div><div class="menu-ic">💡</div>
+      <h3>What is the OA?</h3><p>Learn what the OA is, the four objectives it is designed to accomplish, and how the framework fits together.</p><span class="menu-go">Go →</span>
+    </a>
+    <a class="menu-card" href="#levels" onclick="jumpTo('levels');return false;">
+      <div class="menu-num">2</div><div class="menu-ic">🏅</div>
+      <h3>Five Levels of Adoption</h3><p>See what OA looks like at each level, from Prospective to Platinum, for each phase.</p><span class="menu-go">Go →</span>
+    </a>
+    <a class="menu-card" href="#intro" onclick="jumpTo('intro');return false;">
+      <div class="menu-num">3</div><div class="menu-ic">📚</div>
+      <h3>Introductory OA Resources</h3><p>New to OA? Start here with the free intro course, logic model, guides, and playbook.</p><span class="menu-go">Go →</span>
+    </a>
+    <a class="menu-card" href="#tools" onclick="jumpTo('tools');return false;">
+      <div class="menu-num">4</div><div class="menu-ic">🧰</div>
+      <h3>OA Tools</h3><p>Ready to implement? Find the tools for each service area by phase, for Gold or Platinum.</p><span class="menu-go">Go →</span>
+    </a>
+  </div>
+  <!-- 1. WHAT IS THE OA -->
+  <section id="about" class="block">
+    <div class="sec-head"><div class="sec-label">1 · About the OA</div><h2>What is the OA?</h2></div>
+    <p class="about-lead">The Goodwill Opportunity Accelerator® (OA) is a step-by-step approach to pairing the support services people need with career training, to help them build a career that lasts.</p>
+    <h3 class="sub-h" id="objectives">Objectives</h3>
+    <p class="sec-desc">The OA is designed to accomplish four objectives.</p>
+    <div class="obj-grid">
+    <div class="obj"><div class="obj-icon">🎯</div><div class="obj-body"><strong>Equip Job Seekers</strong><p>Provide access to resources needed to obtain employment, advance careers, and experience economic mobility.</p></div></div>
+    <div class="obj"><div class="obj-icon">🤝</div><div class="obj-body"><strong>Engage Teams &amp; Partners</strong><p>Connect Goodwill team members and partners with best-in-class resources to enhance workforce development services.</p></div></div>
+    <div class="obj"><div class="obj-icon">🌐</div><div class="obj-body"><strong>Connect Communities</strong><p>Collaborate with national partners to connect Goodwill members and their communities to resources and support.</p></div></div>
+    <div class="obj"><div class="obj-icon">📣</div><div class="obj-body"><strong>Advocate &amp; Promote</strong><p>Engage in advocacy and public relations to educate communities and promote the success of the OA model.</p></div></div>
+  </div>
+    <h3 class="sub-h" id="framework">OA Framework</h3>
+    <p class="sec-desc">The OA starts with Organizational Prep, the foundation, and moves through three phases that lead to equitable outcomes. Click any box to see its tools.</p>
+    <div class="fwv" role="img" aria-label="OA Framework: Organizational Prep supports three phases, Assess and Plan, Equip and Connect, and Launch and Evaluate, which lead to equitable outcomes.">
+      <div class="fwv-org">
+        <div class="ic">🏗</div>
+        <div><div class="fwv-tag">Foundation · KSDAs 1 to 6</div><h3>Organizational Prep</h3>
+        <p>Get your organization ready. Train your staff, set up roles and data systems, and build partnerships with community groups and employers.</p></div>
+        <a onclick="switchTab('org')">See tools →</a>
+      </div>
+      <div class="fwv-down">▼</div>
+      <div class="fwv-phases">
+        <div class="fwv-ph p1"><div class="ic">🎯</div><div class="fwv-tag">Phase 1 · KSDAs 7 to 11</div><h3>Assess &amp; Plan</h3>
+          <p>Get to know each person. Welcome them, learn about their needs, skills, and goals, and build a career and financial plan together.</p>
+          <a onclick="switchTab('p1')">See tools →</a></div>
+        <div class="fwv-arrow">▶</div>
+        <div class="fwv-ph p2"><div class="ic">🛠</div><div class="fwv-tag">Phase 2 · KSDAs 12 to 18</div><h3>Equip &amp; Connect</h3>
+          <p>Build skills and remove barriers. Offer support services, financial education, skills and job training, and help getting ready for the job search.</p>
+          <a onclick="switchTab('p2')">See tools →</a></div>
+        <div class="fwv-arrow">▶</div>
+        <div class="fwv-ph p3"><div class="ic">🚀</div><div class="fwv-tag">Phase 3 · KSDAs 19 to 21</div><h3>Launch &amp; Evaluate</h3>
+          <p>Help people land a job and keep growing. Connect them with employers, follow up after they're hired, and stay connected as alumni.</p>
+          <a onclick="switchTab('p3')">See tools →</a></div>
+      </div>
+      <div class="fwv-down">▼</div>
+      <div class="fwv-out">
+        <div class="fwv-out-head">This Leads To Equitable Outcomes</div>
+        <div class="fwv-out-grid">
+          <div class="fwv-out-item">Enhanced Employment</div>
+          <div class="fwv-out-item">Career Advancement</div>
+          <div class="fwv-out-item">Economic Mobility</div>
+          <div class="fwv-out-item">Financial Stability</div>
+          <div class="fwv-out-item">Strengthened Organizational Capacity</div>
+          <div class="fwv-out-item">Community Economic Strength</div>
+        </div>
+      </div>
+    </div>
+    <div class="back-menu"><a href="#menu" onclick="jumpTo('menu');return false;">↑ Back to menu</a></div>
+  </section>
+  <!-- 2. LEVELS -->
+  <section id="levels" class="block">
+    <div class="sec-head"><div class="sec-label">2 · Adoption Levels</div><h2>Five Levels of OA Adoption</h2></div>
+    <p class="sec-desc">Organizations move from Prospective to Platinum at their own pace, and may be at different levels in different areas. Gold and Platinum are the adoption goals.</p>
+    <div class="ladder"><div class="rung la"><div class="rung-l">A</div><div><strong>Prospective</strong><p>Not yet using OA practices in this area.</p></div></div><div class="rung lb"><div class="rung-l">B</div><div><strong>Exploring</strong><p>Leaders see the value. Early, informal steps, but no plan yet.</p></div></div><div class="rung lc"><div class="rung-l">C</div><div><strong>Progressing</strong><p>Practices are being standardized and documented.</p></div></div><div class="rung ld"><div class="rung-l">D</div><div><strong>★ OA Gold</strong><p>Core adoption. You deliver fundamental OA services with flexibility in tools and delivery methods.</p></div></div><div class="rung le"><div class="rung-l">E</div><div><strong>★★ OA Platinum</strong><p>Full adoption of OA practices at their most complete. Specific tools (such as Northstar, ART, or Skills to Succeed) are optional; the practices are what count.</p></div></div></div>
+    <p class="sec-desc" style="margin-top:22px;">Click a phase to see what each level looks like. For more detail, open "See all 5 adoption levels" on any tool card.</p>
+    <div class="lvl-acc">
+      <details class="lvl-ph org"><summary><span class="ic">🏗</span><span>Organizational Prep<br><span class="sub">KSDAs 1 to 6</span></span><span class="chev"></span></summary>
+        <div class="lvl-grid"><div class="lvl-col la"><h4>A. Prospective</h4><ul><li>Staff organized by grant</li><li>No career navigator training or OA champion</li><li>Referrals and employer contact are informal</li><li>No consistent data</li></ul></div><div class="lvl-col lb"><h4>B. Exploring</h4><ul><li>Leaders see the value of functional staffing, career navigator certification, and OA champion, but there is no plan yet</li><li>A few informal partners</li><li>Data is inconsistent</li></ul></div><div class="lvl-col lc"><h4>C. Progressing</h4><ul><li>Functional roles and shared entry-point forming</li><li>Some career navigators and OA Fellow enrolled in training</li><li>Partnerships being documented, LMI use starting, CMS in place</li></ul></div><div class="lvl-col ld"><h4>D. ★ Gold</h4><ul><li>Staff organized by function</li><li>Navigators certified, at least one OA Fellow</li><li>Formal referral and employer partnerships</li><li>Participant data tracked in a case management system, with follow-up at 30, 60, 90, and 180 days after placement</li></ul></div><div class="lvl-col le"><h4>E. ★★ Platinum</h4><ul><li>Full functional model</li><li>Ongoing staff development, two or more Fellows</li><li>Data-driven partnerships, and employers co-create training</li><li>365-day data drives improvement</li><li>Monthly data reporting to GII</li></ul></div></div>
+        <div class="lvl-tools"><a onclick="switchTab('org')">See Organizational Prep tools →</a></div>
+      </details>
+      <details class="lvl-ph p1"><summary><span class="ic">🎯</span><span>Assess &amp; Plan<br><span class="sub">Phase 1 · KSDAs 7 to 11</span></span><span class="chev"></span></summary>
+        <div class="lvl-grid"><div class="lvl-col la"><h4>A. Prospective</h4><ul><li>Passive outreach</li><li>No standard intake, assessment, orientation, or plan</li></ul></div><div class="lvl-col lb"><h4>B. Exploring</h4><ul><li>Single-channel outreach</li><li>Intake, assessments, and orientation vary by staff</li><li>Plans are partial and/or written by staff</li></ul></div><div class="lvl-col lc"><h4>C. Progressing</h4><ul><li>Recruitment strategy forming</li><li>Standard intake and assessment tools emerging</li><li>Most participants get orientation and a plan, but plans don't guide services</li></ul></div><div class="lvl-col ld"><h4>D. ★ Gold</h4><ul><li>Every participant gets a consistent intake, whole-person assessment, orientation, and an ICFP built with them using SMART goals</li><li>Multi-channel outreach encouraged</li></ul></div><div class="lvl-col le"><h4>E. ★★ Platinum</h4><ul><li>Outreach through partners and referral technology</li><li>Ongoing re-assessment</li><li>Orientation improved with feedback</li><li>ICFP is a living plan that drives all services</li></ul></div></div>
+        <div class="lvl-tools"><a onclick="switchTab('p1')">See Assess &amp; Plan tools →</a></div>
+      </details>
+      <details class="lvl-ph p2"><summary><span class="ic">🛠</span><span>Equip &amp; Connect<br><span class="sub">Phase 2 · KSDAs 12 to 18</span></span><span class="chev"></span></summary>
+        <div class="lvl-grid"><div class="lvl-col la"><h4>A. Prospective</h4><ul><li>Barriers go unaddressed</li><li>No training, financial education, career exploration, or job search help</li></ul></div><div class="lvl-col lb"><h4>B. Exploring</h4><ul><li>Informal supports and training on request only</li><li>No standard curriculum and no link to individual needs or employer demand</li></ul></div><div class="lvl-col lc"><h4>C. Progressing</h4><ul><li>Defined supports and training offerings reach many participants but aren't matched to needs or employer feedback yet</li><li>Training being reviewed against local demand</li></ul></div><div class="lvl-col ld"><h4>D. ★ Gold</h4><ul><li>Every participant can access needs-based supports, financial education, foundational and digital skills, in-demand credential training, career exploration, and job search prep</li></ul></div><div class="lvl-col le"><h4>E. ★★ Platinum</h4><ul><li>Proactive, whole-person support</li><li>Employer-shaped, leveled training leads to credentials and living-wage jobs</li><li>Paid work-based learning prioritized</li></ul></div></div>
+        <div class="lvl-tools"><a onclick="switchTab('p2')">See Equip &amp; Connect tools →</a></div>
+      </details>
+      <details class="lvl-ph p3"><summary><span class="ic">🚀</span><span>Launch &amp; Evaluate<br><span class="sub">Phase 3 · KSDAs 19 to 21</span></span><span class="chev"></span></summary>
+        <div class="lvl-grid"><div class="lvl-col la"><h4>A. Prospective</h4><ul><li>No placement support or follow-up</li><li>Contact ends at exit</li></ul></div><div class="lvl-col lb"><h4>B. Exploring</h4><ul><li>Job leads shared informally</li><li>Check-ins only when time allows</li><li>No alumni plan</li></ul></div><div class="lvl-col lc"><h4>C. Progressing</h4><ul><li>Placement services becoming consistent, but wages not tracked</li><li>Follow-up scheduled but mostly status checks</li><li>Alumni list forming</li></ul></div><div class="lvl-col ld"><h4>D. ★ Gold</h4><ul><li>Placement help for every participant</li><li>Follow-up at 30, 60, 90, and 180 days tied to goals</li><li>At least one alumni method beyond one year (encouraged)</li></ul></div><div class="lvl-col le"><h4>E. ★★ Platinum</h4><ul><li>Active job development at a living wage</li><li>365-day follow-up with coaching</li><li>Sustained alumni network with peer mentors</li></ul></div></div>
+        <div class="lvl-tools"><a onclick="switchTab('p3')">See Launch &amp; Evaluate tools →</a></div>
+      </details>
+    </div>
+    <div class="back-menu"><a href="#menu" onclick="jumpTo('menu');return false;">↑ Back to menu</a></div>
+  </section>
+  <!-- 3. INTRO RESOURCES -->
+  <section id="intro" class="block">
+    <div class="sec-head"><div class="sec-label">3 · Start Here</div><h2>Introductory OA Resources</h2></div>
+    <p class="sec-desc">New to the Opportunity Accelerator? These resources build your foundation before you dive into the tools for each phase.</p>
+    <div class="intro-strip">
+      <div class="intro-strip-head">
+        <div>
+          <h2>📚 Core Resources</h2>
+          <p>Foundational materials. Start with the Introduction course if you're brand new.</p>
+        </div>
+      </div>
+      <div class="res-grid">
+        <div class="res-item"><div class="res-ico">🎓</div><div class="res-info"><div class="res-name">Introduction to the Opportunity Accelerator</div><div class="res-note">Free course on Rockstar Learning. Start here</div></div><div class="res-action"><a href="https://goodwill.rockstarlearning.com/course/introduction-to-the-opportunity-accelerator-course" target="_blank">Open →</a></div></div>
+        <div class="res-item"><div class="res-ico">🗺</div><div class="res-info"><div class="res-name">Journey Maps &amp; Personas for Goodwill Employees</div><div class="res-note">Understand the participant experience across the OA journey</div></div><div class="res-action"><span class="tbd">Link TBD</span></div></div>
+        <div class="res-item"><div class="res-ico">✅</div><div class="res-info"><div class="res-name">OA Readiness Assessment</div><div class="res-note">Assess your organization's readiness before beginning adoption</div></div><div class="res-action"><span class="upd">Update Needed</span></div></div>
+        <div class="res-item"><div class="res-ico">📐</div><div class="res-info"><div class="res-name">OA Logic Model</div><div class="res-note">The theory of change underlying the OA framework</div></div><div class="res-action"><a href="https://exchange.goodwill.org/documents/d/goodwill/oa-logic-model?download=true" target="_blank">Download →</a></div></div>
+        <div class="res-item"><div class="res-ico">📊</div><div class="res-info"><div class="res-name">OA Fidelity Index</div><div class="res-note">Measure how closely your implementation aligns with the model</div></div><div class="res-action"><span class="upd">Update Needed</span></div></div>
+        <div class="res-item"><div class="res-ico">📖</div><div class="res-info"><div class="res-name">Mission Advancement Playbook</div><div class="res-note">Comprehensive guide for mission strategy and advancement</div></div><div class="res-action"><a href="https://exchange.goodwill.org/mission-playbook" target="_blank">Open →</a></div></div>
+        <div class="res-item"><div class="res-ico">📚</div><div class="res-info"><div class="res-name">Goodwill OA Guides</div><div class="res-note">Collection of guides for implementing OA practices</div></div><div class="res-action"><a href="https://exchange.goodwill.org/opportunity-accelerator-guides" target="_blank">Open →</a></div></div>
+        <div class="res-item"><div class="res-ico">🔗</div><div class="res-info"><div class="res-name">OA Key Service Delivery Areas</div><div class="res-note">Interactive overview of all 21 OA service areas</div></div><div class="res-action"><a href="https://sandra-smart.github.io/OA-Service-Delivery-Areas/" target="_blank">Open →</a></div></div>
+      </div>
+    </div>
+    <div class="back-menu"><a href="#menu" onclick="jumpTo('menu');return false;">↑ Back to menu</a></div>
+  </section>
+  <!-- 4. OA TOOLS -->
+  <section id="tools" class="block">
+    <div class="sec-head"><div class="sec-label">4 · Ready to start implementing?</div><h2>OA Tools</h2></div>
+    <p class="sec-desc">The Goodwill Opportunity Accelerator® system of tools and resources provide a cohesive, scalable backbone for Goodwill’s mission delivery; aligning people, technology, and partnerships around a shared framework that advances equity, workforce relevance, and economic mobility. Pick a phase, then choose Gold or Platinum to see what applies to you.</p>
+  </section>
+  <!-- PHASE NAV -->
+  <div class="phase-nav">
+    <div class="phase-nav-inner">
+      <div class="ptab on" onclick="switchTab('org')"><span class="ico">🏗</span>Org Prep</div>
+      <div class="ptab" onclick="switchTab('p1')"><span class="n">1</span>Assess &amp; Plan</div>
+      <div class="ptab" onclick="switchTab('p2')"><span class="n">2</span>Equip &amp; Connect</div>
+      <div class="ptab" onclick="switchTab('p3')"><span class="n">3</span>Launch &amp; Evaluate</div>
+    </div>
+  </div>
+  <!-- TIER BAR -->
+  <div class="tier-bar" style="margin-top:16px;" id="tierbar">
+    <span class="lbl">Show resources for:</span>
+    <div class="tier-btn ess on" onclick="setTier('ess',this)">★ OA Gold</div>
+    <div class="tier-btn hf" onclick="setTier('hf',this)">★★ OA Platinum</div>
+    <div class="tier-btn" style="background:var(--bg);color:var(--muted);border-color:var(--border);" onclick="setTier('all',this)">All</div>
+    <span class="tier-info" id="tier-hint">Showing core adoption practices</span>
+  </div>
+  <p class="sec-desc" style="margin-top:10px;font-size:13px;"><strong>Note:</strong> Gold and Platinum are defined by practices, not specific tools. Named tools (for example ART, Northstar, O*NET, CaseWorthy, or Skills to Succeed) are optional examples. Use any tool that supports the practice. Each service area also has a <strong>Service Area Brief</strong> with its definition, progression, and effective practices.</p>
+
+  <!-- ===== PANEL: ORG ===== -->
+  <div class="panel on" id="panel-org">
+    <div class="phase-banner pb-org">
+      <div class="pb-icon">🏗</div>
+      <div><div class="pb-head">Organizational Preparation</div><p class="pb-desc">The tools, resources and training in the Organizational Preparation step of the Goodwill Opportunity Accelerator® supports mission teams as you train your staff, align on systems and processes, gain internal stakeholder buy-in, and build community and employer partnerships.</p></div>
+    </div>
+    <div class="cards">
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Org Prep · 1</div></div>
+        <h3>Functionally Aligned Staffing Model</h3>
+        <p class="desc">Staff are organized by the work they do, rather than by program or funding source. Each core OA function has a clear owner, so participants get the same quality of service no matter which door they come through.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Functional groups, one point of entry</span>
+          <span class="tier-pill tp-hf">Platinum: Full functional model, skills-based hiring</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>Staff organized by program, grant, or population; each new grant hires its own team doing every function.</div><div class="lvl-row lb"><b>B · Exploring</b>Leaders recognize the silo problem. Some shared steps exist, but staffing is still largely program-by-program.</div><div class="lvl-row lc"><b>C · Progressing</b>Functional groups forming. A shared point of entry exists; some staff serve across funding streams; roles being defined.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Staff organized into functional groups. One common point of entry. Participants served by function regardless of funding stream; blended funding documented.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Full functional model at fidelity. Specialization within a function only where volume warrants. Skills-based hiring and change management drive improvement.</div></div></details>
+        <div class="card-footer">
+          <a href="https://exchange.goodwill.org/documents/d/goodwill/mission-playbook_chapter-2_staffing-your-mission-strategy" class="btn btn-live" target="_blank">Mission Playbook Chapter 2 - Staffing Your Mission Strategy →</a>
+          <a href="https://exchange.goodwill.org/documents/d/goodwill/mission-advancement_playbook-case-study-1_staffing-structures" class="btn btn-live" target="_blank">Staffing Structures Case Study →</a>
+          <a href="https://drive.google.com/open?id=1Ma4kMzzPaTPmslsMTQhYC3ZJ_vKBaDjF&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Org Prep · 2</div></div>
+        <h3>Goodwill Career Coach &amp; Navigator Certificate</h3>
+        <p class="desc">Goodwill® Career Navigator and Coach Professional Certificate for team members providing coaching and career navigation services. The certificate trains navigators on one shared set of skills, so every participant gets the same intensive, collaborative support to identify and address employment barriers.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Career Navigators certified</span>
+          <span class="tier-pill tp-hf">Platinum: Certification sustained, ongoing development</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No shared coaching or navigation training.</div><div class="lvl-row lb"><b>B · Exploring</b>Leaders see the value of certification. Some ad hoc training, but no expectation, plan, or budget to certify navigators.</div><div class="lvl-row lc"><b>C · Progressing</b>Certification expected for the navigator role. Some navigators enrolled or partially complete; a tracking method forming.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Career Navigators certified through the Goodwill Career Navigator and Coach Certificate. Core coaching competencies applied in practice; completion tracked.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Full certification sustained, with the Digital Navigator specialization where relevant. Ongoing professional development and peer coaching.</div></div></details>
+        <div class="card-footer">
+          <a href="https://app.smartsheet.com/b/form/8720b80b9ba846d0872aa6d4d3464a81" class="btn btn-live" target="_blank">Professional Certificate License Request →</a>
+          <a href="https://drive.google.com/open?id=1RUEPOFnLX7U7c3mMgsOhyZBfgLuwLdHP&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Org Prep · 3</div></div>
+        <h3>OA Fellows Program</h3>
+        <p class="desc">Leadership development through participation in the OA Fellows program. OA Fellows are internal champions for OA, trained to understand the framework and equip Goodwill peers to put it into practice locally.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: At least 1 Fellow</span>
+          <span class="tier-pill tp-hf">Platinum: At least 2 Fellows</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No internal OA champion.</div><div class="lvl-row lb"><b>B · Exploring</b>Leaders see the value of a champion, but no one is formally developed or resourced to lead adoption internally.</div><div class="lvl-row lc"><b>C · Progressing</b>A team member is enrolled in or partway through the Fellows program. The champion role is forming.</div><div class="lvl-row ld"><b>D · ★ Gold</b>At least one team member active in or completed the Fellows program. The Fellow models practice and helps translate OA into local action.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Two or more Fellows sustain a local community of practice, mentor staff, drive fidelity, and are resourced with time and authority.</div></div></details>
+        <div class="card-footer">
+          <a href="https://app.smartsheet.com/b/form/7bce36a2445f4de4986d99aa9ab402a9" class="btn btn-live" target="_blank">OA Fellows Application →</a>
+          <a href="https://drive.google.com/open?id=12K6VGXRH9u9XYj5YX_Qjl5S9gHGZfKas&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Org Prep · 4</div></div>
+        <h3>Referral &amp; Wraparound Network Integration</h3>
+        <p class="desc">Building partnerships based on what people in the region actually need, and using referral technology to connect individuals to support services and confirm they received the help.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Formal partnerships, referrals tracked</span>
+          <span class="tier-pill tp-hf">Platinum: Needs-based, linked to intake and ICFP</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>Referrals are ad hoc, a phone number or a photocopied list. No formal partnerships; no follow-through.</div><div class="lvl-row lb"><b>B · Exploring</b>A resource list and a few informal partners exist, but referrals are not documented, tracked, or grounded in needs data.</div><div class="lvl-row lc"><b>C · Progressing</b>Some formal partnerships being documented. Follow-through tracked manually.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Formal, documented partnerships across core need areas. Referrals and outcomes tracked.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Partnerships grounded in regional needs data, integrated with intake and the ICFP, reviewed on a continuous-improvement cycle.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1pdA4lvDhEAtbVoAafwStSmOxjSqO1Wbx&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Org Prep · 5</div></div>
+        <h3>Employer Partnership Planning &amp; Outreach</h3>
+        <p class="desc">Engaging employers using labor market data to co-create training and job placement strategies, focused on industries that are hiring and bringing employers together as a group rather than one at a time.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Formal employer partnerships</span>
+          <span class="tier-pill tp-hf">Platinum: LMI-informed, co-created training</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>Employer contact is informal or none; transactional job orders. No labor market data behind training choices.</div><div class="lvl-row lb"><b>B · Exploring</b>A few ad hoc employer relationships. Training decisions not yet grounded in demand; employers treated as job leads.</div><div class="lvl-row lc"><b>C · Progressing</b>Referral partnerships forming and being documented. Beginning to use LMI and move from job orders toward relationships.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Formal referral partnerships with local employers offering real jobs. A dedicated Business Engagement function stewards relationships.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Strategic, data-informed partnerships: specific LMI targets training to in-demand occupations, and employers co-create training.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1V7gE0XU_um5Mz9qDCe0btN-TmVRen1DA&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Org Prep · 6</div></div>
+        <h3>Evaluating Impact &amp; Metrics</h3>
+        <p class="desc">Collecting and analyzing the same data on every participant to measure KPIs and gather feedback throughout the journey, and using what the data shows to improve services rather than only to report.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Short KPI list, 180-day follow-up</span>
+          <span class="tier-pill tp-hf">Platinum: Long KPI list, 365-day follow-up, monthly reporting to GII</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No consistent data tracking. Data captured informally, if at all; cannot support reporting or improvement.</div><div class="lvl-row lb"><b>B · Exploring</b>Some data collected but intervals and fields inconsistent. Reporting is point-in-time, mostly for compliance.</div><div class="lvl-row lc"><b>C · Progressing</b>A case management system is in use; most short-list data fields captured. Post-placement follow-up beginning.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Short list of individual-level data in a CMS. Post-placement data at 30, 60, 90, and 180 days.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Long list of data fields; follow-up extended to 365 days. Longitudinal data feeds a continuous-improvement cycle with benchmarking. Data submitted to GII monthly.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1CjvUNX6M_FI7mTioP_-4WNiKuiD5-8CN&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== PANEL: P1 ===== -->
+  <div class="panel" id="panel-p1">
+    <div class="phase-banner pb-1">
+      <div class="pb-icon">🎯</div>
+      <div><div class="pb-head">Phase 1: Assess &amp; Plan</div><p class="pb-desc">The tools, resources and training in the Assess and Plan phase of the Goodwill Opportunity Accelerator® supports Goodwill career coaches and navigators as they recruit job seekers, conduct intake and assessments, create career and financial plans, and collect and report intake and enrollment data.</p></div>
+    </div>
+    <div class="cards">
+      <div class="card" data-ess="na" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 7</div></div>
+        <h3>Outreach &amp; Recruitment</h3>
+        <p class="desc">Promote mission services using diverse outreach methods and referral technologies. Outreach is planned around the participant's life and delivered with community organizations people already trust, so it reaches those least likely to come in on their own.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Encouraged, not required</span>
+          <span class="tier-pill tp-hf">Platinum: Referral partners + referral technology</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>Outreach is passive; the program serves only those who already know about it. No intentional strategy.</div><div class="lvl-row lb"><b>B · Exploring</b>Some outreach through a single channel. Messaging is generic, not tailored to those facing the greatest barriers.</div><div class="lvl-row lc"><b>C · Progressing</b>A recruitment strategy is forming: a few community partners and channels used; the team tracks which bring people in.</div><div class="lvl-row ld"><b>D · ★ Gold</b>An intentional, multi-channel strategy reaches priority populations with tailored, asset-based messaging. (Encouraged, not required.)</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Systematic outreach through established referral partners and referral technology. Outreach and enrollment demographics tracked.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1IZZsRf9A5sAFKPgUDbzmVh4y7SlewN1o&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 8</div></div>
+        <h3>Registration &amp; Intake</h3>
+        <p class="desc">Conduct intake services to meet with potential clients/job seekers, learn more about who they are, and collect demographic, work and educational history, and other personal information that determines eligibility. Intake follows the same steps for everyone and is a welcoming, trauma-informed conversation rather than a form.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Short KPI list</span>
+          <span class="tier-pill tp-hf">Platinum: Long KPI list</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No standardized intake.</div><div class="lvl-row lb"><b>B · Exploring</b>A basic intake form exists but fields vary by staff and are not aligned to OA KPIs. Intake is paperwork, not relationship.</div><div class="lvl-row lc"><b>C · Progressing</b>A standard intake form captures most short-list KPIs. Data entered into the CMS, with some delays.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Intake aligned to the OA short KPI list; every participant completes a consistent, welcoming, trauma-informed intake that flows into the ICFP.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Intake aligned to the long KPI list; comprehensive baseline integrates with the ICFP and reporting.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1J0NhfNde6RA45_VxUFJgoHNA9Ib2iXwK&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 9a</div></div>
+        <h3>Needs Assessment</h3>
+        <p class="desc">Holistic evaluation across financial capability, health care, food security, housing stability, transportation, legal issues, family care (adult and child), and clothing needed for employment. Results are used to match supports to what each person actually needs.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Valid tools, results feed the ICFP</span>
+          <span class="tier-pill tp-hf">Platinum: Re-assessment to track progress</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-note">Shared progression for all Assessment Selection areas (9a to 9d).</div><div class="lvl-row la"><b>A · Prospective</b>Assessment is informal or skipped.</div><div class="lvl-row lb"><b>B · Exploring</b>Some assessments are used, but tools vary by staff and their validity is unverified. A single test may stand in for the whole picture. Accommodations are handled case by case, and results are applied inconsistently.</div><div class="lvl-row lc"><b>C · Progressing</b>The organization is standardizing valid, reliable tools across the assessment domains and starting to combine more than one source rather than a single score. Accommodations and language access are being built in, and results are beginning to feed the participant’s plan.</div><div class="lvl-row ld"><b>D · ★ Gold</b>A whole-person assessment across the four domains (needs, basic education, career readiness and interest, digital skills) using valid, reliable tools administered by qualified staff. Fairness, accommodations, and language access are standard, and results feed each participant’s Individual Career and Financial Plan.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Everything at Gold. Adverse-impact and validity are reviewed on an ongoing basis, participants are re-assessed to track progress, and results consistently drive individualized pathways and re-planning.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1QdAenDDiszyav-HuNJtySCI19kjy1KFP&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief: Assessment Selection (9a to 9d) →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 9b</div></div>
+        <h3>Basic Education Assessment</h3>
+        <p class="desc">Assess reading, writing, math, and English language proficiency levels so training starts at the right level for the person. Used for participants without a diploma heading into occupational training.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Valid tools, results feed the ICFP</span>
+          <span class="tier-pill tp-hf">Platinum: Re-assessment to track progress</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-note">Shared progression for all Assessment Selection areas (9a to 9d).</div><div class="lvl-row la"><b>A · Prospective</b>Assessment is informal or skipped.</div><div class="lvl-row lb"><b>B · Exploring</b>Some assessments are used, but tools vary by staff and their validity is unverified. A single test may stand in for the whole picture. Accommodations are handled case by case, and results are applied inconsistently.</div><div class="lvl-row lc"><b>C · Progressing</b>The organization is standardizing valid, reliable tools across the assessment domains and starting to combine more than one source rather than a single score. Accommodations and language access are being built in, and results are beginning to feed the participant’s plan.</div><div class="lvl-row ld"><b>D · ★ Gold</b>A whole-person assessment across the four domains (needs, basic education, career readiness and interest, digital skills) using valid, reliable tools administered by qualified staff. Fairness, accommodations, and language access are standard, and results feed each participant’s Individual Career and Financial Plan.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Everything at Gold. Adverse-impact and validity are reviewed on an ongoing basis, participants are re-assessed to track progress, and results consistently drive individualized pathways and re-planning.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1QdAenDDiszyav-HuNJtySCI19kjy1KFP&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief: Assessment Selection (9a to 9d) →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 9c</div></div>
+        <h3>Career Readiness &amp; Interest Assessment</h3>
+        <p class="desc">Evaluate interests and job skills to identify suitable career paths, so the career match is intentional rather than left to chance.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Valid tools, results feed the ICFP</span>
+          <span class="tier-pill tp-hf">Platinum: Re-assessment to track progress</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-note">Shared progression for all Assessment Selection areas (9a to 9d).</div><div class="lvl-row la"><b>A · Prospective</b>Assessment is informal or skipped.</div><div class="lvl-row lb"><b>B · Exploring</b>Some assessments are used, but tools vary by staff and their validity is unverified. A single test may stand in for the whole picture. Accommodations are handled case by case, and results are applied inconsistently.</div><div class="lvl-row lc"><b>C · Progressing</b>The organization is standardizing valid, reliable tools across the assessment domains and starting to combine more than one source rather than a single score. Accommodations and language access are being built in, and results are beginning to feed the participant’s plan.</div><div class="lvl-row ld"><b>D · ★ Gold</b>A whole-person assessment across the four domains (needs, basic education, career readiness and interest, digital skills) using valid, reliable tools administered by qualified staff. Fairness, accommodations, and language access are standard, and results feed each participant’s Individual Career and Financial Plan.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Everything at Gold. Adverse-impact and validity are reviewed on an ongoing basis, participants are re-assessed to track progress, and results consistently drive individualized pathways and re-planning.</div></div></details>
+        <div class="card-footer">
+          <a href="https://onetinterestprofiler.org/" class="btn btn-live" target="_blank">O*NET Interest Profiler (optional) →</a>
+          <a href="https://drive.google.com/open?id=1QdAenDDiszyav-HuNJtySCI19kjy1KFP&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief: Assessment Selection (9a to 9d) →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 9d</div></div>
+        <h3>Digital Skills Assessment</h3>
+        <p class="desc">Evaluate comfort and gaps in basic digital skills, so training targets real gaps and progress can be measured over time.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Valid tools, results feed the ICFP</span>
+          <span class="tier-pill tp-hf">Platinum: Re-assessment to track progress</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-note">Shared progression for all Assessment Selection areas (9a to 9d).</div><div class="lvl-row la"><b>A · Prospective</b>Assessment is informal or skipped.</div><div class="lvl-row lb"><b>B · Exploring</b>Some assessments are used, but tools vary by staff and their validity is unverified. A single test may stand in for the whole picture. Accommodations are handled case by case, and results are applied inconsistently.</div><div class="lvl-row lc"><b>C · Progressing</b>The organization is standardizing valid, reliable tools across the assessment domains and starting to combine more than one source rather than a single score. Accommodations and language access are being built in, and results are beginning to feed the participant’s plan.</div><div class="lvl-row ld"><b>D · ★ Gold</b>A whole-person assessment across the four domains (needs, basic education, career readiness and interest, digital skills) using valid, reliable tools administered by qualified staff. Fairness, accommodations, and language access are standard, and results feed each participant’s Individual Career and Financial Plan.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Everything at Gold. Adverse-impact and validity are reviewed on an ongoing basis, participants are re-assessed to track progress, and results consistently drive individualized pathways and re-planning.</div></div></details>
+        <div class="card-footer">
+          <a href="https://www.digitalliteracyassessment.org/" class="btn btn-live" target="_blank">Northstar Assessment (optional) →</a>
+          <a href="https://drive.google.com/open?id=1QdAenDDiszyav-HuNJtySCI19kjy1KFP&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief: Assessment Selection (9a to 9d) →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 10</div></div>
+        <h3>Orientation</h3>
+        <p class="desc">Provide welcome materials and sessions explaining available services. Orientation shows participants the full path ahead, what to expect, and what support is there, so they start with confidence.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: All participants complete before enrollment</span>
+          <span class="tier-pill tp-hf">Platinum: Improved using participant feedback</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No orientation.</div><div class="lvl-row lb"><b>B · Exploring</b>An informal welcome happens for some participants, but it is inconsistent, undocumented, and not required before enrollment. What someone learns depends on who greets them.</div><div class="lvl-row lc"><b>C · Progressing</b>A standard orientation exists and most participants complete it, though not yet universally or before enrollment. It covers services, but does not yet give participants a full picture of the pathway ahead.</div><div class="lvl-row ld"><b>D · ★ Gold</b>All individuals complete a consistent orientation prior to enrollment. It explains available services, how the OA journey works, and mutual expectations, and leaves participants with a clear picture of the path ahead and confidence that it is achievable. Delivered group or individual, virtual or in-person.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Orientation is treated as a persistence strategy and refined over time. Every participant leaves understanding the full pathway and what success looks like, with a warm bridge into the ICFP, and participant feedback on the orientation experience is collected and used to strengthen it.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1u51CNJpiPaSOwFbNmjfRtaN4RI4O1BCx&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 1 · 11</div></div>
+        <h3>Individual Career &amp; Financial Plan (ICFP)</h3>
+        <p class="desc">A personalized plan, built together with the participant, with SMART goals the participant sets for their career pathway, financial stability, and other self-sufficiency goals.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Built with a navigator using SMART goals</span>
+          <span class="tier-pill tp-hf">Platinum: Living plan that drives every service</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No individual plan.</div><div class="lvl-row lb"><b>B · Exploring</b>Some participants have goal notes or a partial plan, but plans are inconsistent, written by staff rather than developed with the participant, and rarely revisited after the first meeting.</div><div class="lvl-row lc"><b>C · Progressing</b>A standard ICFP is being adopted and most participants have a written plan developed with them. Goals are becoming more specific, though career and financial goals are not yet fully integrated and plans are not consistently used to guide services.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Every participant develops a written ICFP collaboratively with their Career Navigator, using SMART goals across both career pathway and financial stability. The plan identifies goals, barriers, and the combination of services that will achieve them, and services connect back to the plan.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>The ICFP is a living strategy, reviewed and updated as participants progress, hit obstacles, or reach goals. Progress is tracked and shared with the participant so they can see movement, financial capability support is actively delivered alongside career services, and the plan drives every service decision.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1l5iB75KSo6gUE08w9ludrIo6QoT3RbVA&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== PANEL: P2 ===== -->
+  <div class="panel" id="panel-p2">
+    <div class="phase-banner pb-2">
+      <div class="pb-icon">🛠</div>
+      <div><div class="pb-head">Phase 2: Equip &amp; Connect</div><p class="pb-desc">The tools, resources and training in the Equip and Connect phase of the Goodwill Opportunity Accelerator® supports Goodwill career coaches and navigators with implementing skills training programs, providing holistic support services for program participants, and preparing job seekers for employment in the community.</p></div>
+    </div>
+    <div class="cards">
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 2 · 12</div></div>
+        <h3>Wraparound Supports</h3>
+        <p class="desc">Provide support services matched to each person's assessed needs, including remedial education, financial capability, health care, mental health, food security, housing stability, transportation, legal issues, family care (adult and child), and clothing needed for employment. Staff introduce participants to partners directly rather than handing out a list.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Matched to assessed needs</span>
+          <span class="tier-pill tp-hf">Platinum: Proactive, whole-person support</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>Barriers go unaddressed.</div><div class="lvl-row lb"><b>B · Exploring</b>Some supports offered reactively and inconsistently, not tied to assessed needs, often only when a participant asks.</div><div class="lvl-row lc"><b>C · Progressing</b>A defined menu of supports exists and is offered to many participants, though not consistently matched to assessed barriers.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Wraparound supports offered aligned to each participant’s assessed needs, delivered directly or through partners, connected to ICFP barriers. Utilization tracked.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Proactive, individualized support: barriers anticipated, emergency assistance prevents disruption, and a whole-person, two-generation lens is applied.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=14iLRP56YVKI6vpD6uQHBr6eTG23VsCsB&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 2 · 13</div></div>
+        <h3>Financial Education</h3>
+        <p class="desc">Guidance on managing and planning personal finances, offered at the level each person needs and focused on applied skills such as building a budget, opening an account, or starting savings.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Offered to every participant</span>
+          <span class="tier-pill tp-hf">Platinum: Built into the ICFP</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No financial education offered.</div><div class="lvl-row lb"><b>B · Exploring</b>Occasional financial tips shared informally, but no consistent offer, curriculum, or way to match support to need.</div><div class="lvl-row lc"><b>C · Progressing</b>A financial education offering exists and reaches many participants, though not consistently offered or matched to need.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Financial education offered to every participant, with the level matched to individual need (single topic to full coaching). Delivered directly or through partners.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Financial education integrated with the ICFP and sequenced to anticipated income, using goal-based coaching and links to banking, savings, and credit-building.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1RGviEpAYQdtKOrcKAVti9h7CP_TgUYzb&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 2 · 14</div></div>
+        <h3>Foundational Skills Training</h3>
+        <p class="desc">Training on the personal and interpersonal skills employers ask for most, such as reliability, communication, teamwork, and problem solving, taught through practice and real workplace scenarios.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Offered to every participant</span>
+          <span class="tier-pill tp-hf">Platinum: Structured, scenario-based course, employer-aligned</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>Foundational skills are not taught.</div><div class="lvl-row lb"><b>B · Exploring</b>Soft-skill topics come up informally during other services, but there is no dedicated, consistent offering.</div><div class="lvl-row lc"><b>C · Progressing</b>A foundational skills offering is taking shape and reaches many participants, though not aligned to employer feedback.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Foundational skills training offered to every participant, covering the core competencies. Completion tracked.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Training includes a structured, interactive, scenario-based course, is aligned to employer feedback, and connects to occupation-specific training and placement.</div></div></details>
+        <div class="card-footer">
+          <a href="https://s2sacademy.org/" class="btn btn-live" target="_blank">Skills to Succeed Academy (optional) →</a>
+          <a href="https://drive.google.com/open?id=1iiRqzsmkRwc0cMBlHapSdeiCQltN2Iwq&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 2 · 15</div></div>
+        <h3>Digital Skills Training</h3>
+        <p class="desc">Teach use of computers, software, and online tools for employment, starting with basic skills and moving up through clear levels toward what the job requires.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Leveled framework, starts at assessed level</span>
+          <span class="tier-pill tp-hf">Platinum: Full leveled pathway, progress measured, credentials</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No digital skills training.</div><div class="lvl-row lb"><b>B · Exploring</b>Staff help with a device or an online form when someone asks, but there is no curriculum, no skill levels, and no way to know what a person learned.</div><div class="lvl-row lc"><b>C · Progressing</b>A digital skills offering is taking shape and follows parts of a leveled framework such as the GDCA. Levels are being defined, though training is not yet matched to assessed gaps.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Digital skills training follows a leveled framework (such as the GDCA), starts at the participant’s assessed level, and is tailored to both employer skill demand and individual need.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>A full leveled pathway from basic computer use through occupation-specific digital skills, with progress measured by a validated assessment (such as Northstar) and training leading to credentials employers recognize.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1-zrRd5IwrReLfeyLC7yPh5lVFPTjxPY8&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 2 · 16</div></div>
+        <h3>Occupation-Specific Skills Training</h3>
+        <p class="desc">Training and certifications leading to industry-recognized credentials, aimed at jobs employers are hiring for now and at industries that pay well.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Aligned with local labor market</span>
+          <span class="tier-pill tp-hf">Platinum: Living wage focus + employer input</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No occupational training offered or referred.</div><div class="lvl-row lb"><b>B · Exploring</b>A few training options exist, chosen by habit or convenience rather than by what employers are hiring for.</div><div class="lvl-row lc"><b>C · Progressing</b>Training options are being reviewed against local demand. Some lead to recognized credentials; wage outcomes are not yet part of the decision.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Occupational skills training offered, directly or through partners, aligned with local labor market demand and leading to industry-recognized credentials.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Training is shaped by employer input and specific labor market data, targets higher-wage industries, and occupations must pay a livable wage for the geographic area.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=13pqsG0YGw7dMFcxHZhVZ8Cai5sQSJDW7&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 2 · 17</div></div>
+        <h3>Career Exploration Opportunities</h3>
+        <p class="desc">Hands-on experiences such as job shadowing, OJT, learn-and-earn, internships, pre-apprenticeships, apprenticeships, job site tours, informational employment observations, and simulated environments using VR headsets. These let participants see a career up close before committing to training.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Exploration offered before training</span>
+          <span class="tier-pill tp-hf">Platinum: Paid work-based learning prioritized</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No exploration offered.</div><div class="lvl-row lb"><b>B · Exploring</b>An occasional site tour or guest speaker happens, but exploration is not planned, tracked, or offered to everyone.</div><div class="lvl-row lc"><b>C · Progressing</b>A few exploration activities are offered regularly, such as job shadowing or tours, though not yet sequenced before training decisions.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Career exploration activities offered so participants can see a field before committing, using job shadowing, tours, simulations, OJT, or internships.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>A full range of work-based learning, with paid internships and apprenticeships prioritized for ready participants, sequenced ahead of training and built with employer partners.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1zJcFO9F1u4Ku4XMVnwlGQLCEe1MAAm9i&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 2 · 18</div></div>
+        <h3>Job Search &amp; Prep Assistance</h3>
+        <p class="desc">Structured support with resumes, cover letters, interviews, and online job applications.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Résumé + interview prep for all</span>
+          <span class="tier-pill tp-hf">Platinum: Full prep, refined with employer feedback</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No job search help.</div><div class="lvl-row lb"><b>B · Exploring</b>Informal tips on resumes or interviews, given by whichever staff person is available. No curriculum or consistency.</div><div class="lvl-row lc"><b>C · Progressing</b>A job search offering exists and reaches many participants, though content and delivery still vary by staff.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Structured job search preparation for every participant, including resume and interview prep, delivered directly or through partners.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Full preparation including resumes, cover letters, interview practice, online application navigation, and strategies for complex work histories, refined with employer feedback.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1-R3uwRvsjc2ZaPbXT7KEEWUAC56xhfAy&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== PANEL: P3 ===== -->
+  <div class="panel" id="panel-p3">
+    <div class="phase-banner pb-3">
+      <div class="pb-icon">🚀</div>
+      <div><div class="pb-head">Phase 3: Launch &amp; Evaluate</div><p class="pb-desc">The tools, resources and training in the Launch and Evaluate phase of the Goodwill Opportunity Accelerator® supports Goodwill career coaches and navigators with enhancing job placement efforts, supporting job retention and career progression, and optimizing post-program alumni engagement.</p></div>
+    </div>
+    <div class="cards">
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 3 · 19</div></div>
+        <h3>Job Placement Assistance</h3>
+        <p class="desc">Engage employers to identify job openings and create employment opportunities. Placement is active, employer relationships are maintained beyond a single hire, and pay is measured against a living wage benchmark.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Placement help for every participant</span>
+          <span class="tier-pill tp-hf">Platinum: Placements benchmarked to a living wage</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No placement support.</div><div class="lvl-row lb"><b>B · Exploring</b>Staff share job leads when they hear about them, but no one owns placement and there is no employer follow-up.</div><div class="lvl-row lc"><b>C · Progressing</b>Placement support is becoming consistent and some employer relationships are being maintained, though wage quality is not yet tracked.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Job placement assistance offered to every participant, with staff engaging employers to identify openings and make matches.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Active job development with trusted, ongoing employer relationships, and placements benchmarked to a livable wage using a tool such as the MIT Living Wage Calculator.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1YVpbrWgTVkTkJHBKu5nKtgtY-nU7bvI7&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="required" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 3 · 20</div></div>
+        <h3>Retention Services &amp; Follow-Up</h3>
+        <p class="desc">Ongoing support after job placement or training completion to help individuals retain employment and advance in their careers. Contact is most frequent in the first 90 days and is paired with real supports and goal-based coaching, not check-ins alone.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Follow-up at 30/60/90/180 days</span>
+          <span class="tier-pill tp-hf">Platinum: Follow-up through 365 days with coaching</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>Services end at placement.</div><div class="lvl-row lb"><b>B · Exploring</b>Occasional check-ins happen when staff have time, with no schedule, no documentation, and no support behind the call.</div><div class="lvl-row lc"><b>C · Progressing</b>A follow-up schedule is in place and most participants are contacted, though contacts are status checks rather than coaching.</div><div class="lvl-row ld"><b>D · ★ Gold</b>Structured follow-up at 30, 60, 90, and 180 days, with contacts connected to wraparound supports and the participant’s goals.</div><div class="lvl-row le"><b>E · ★★ Platinum</b>Follow-up extended to 365 days, front-loaded in the first 90 days, paired with goal-based employment coaching and advancement support rather than check-ins alone.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1aB1O7GO7abS93MLR5eDJmvC8aBCvWDqc&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+      <div class="card" data-ess="na" data-hf="required">
+        <div class="card-top"><div class="card-num">Phase 3 · 21</div></div>
+        <h3>Alumni Engagement</h3>
+        <p class="desc">Long-term engagement of individuals after program completion or job placement, extending beyond one year, through networking, mentorship, and/or alumni serving as teachers or teaching assistants. These connections help people hear about and land jobs.</p>
+        <div class="card-tiers">
+          <span class="tier-pill tp-ess">Gold: Encouraged, not required</span>
+          <span class="tier-pill tp-hf">Platinum: Sustained network + peer mentors</span>
+        </div>
+        <details class="lvl-more"><summary>See all 5 adoption levels</summary><div class="lvl-list"><div class="lvl-row la"><b>A · Prospective</b>No contact after exit.</div><div class="lvl-row lb"><b>B · Exploring</b>Leaders see the value of staying connected, but there is no method, owner, or plan for alumni engagement.</div><div class="lvl-row lc"><b>C · Progressing</b>An alumni list is being built and occasional outreach happens, though engagement is not yet structured or ongoing.</div><div class="lvl-row ld"><b>D · ★ Gold</b>At least one established method of alumni engagement beyond one year, such as networking, mentorship, or alumni serving as teachers or teaching assistants. (Encouraged, not required.)</div><div class="lvl-row le"><b>E · ★★ Platinum</b>A sustained alumni network that builds connections across social lines, opens job leads, and pairs alumni with current participants as peer mentors.</div></div></details>
+        <div class="card-footer">
+          <a href="https://drive.google.com/open?id=1XF3QVpiV3qZGcaS7wGv-wAs136zZT1h-&usp=drive_copy" class="btn btn-brief" target="_blank" rel="noopener noreferrer">📄 Service Area Brief →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="back-menu"><a href="#menu" onclick="jumpTo('menu');return false;">↑ Back to menu</a></div>
+</div><!-- end .wrap -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<footer>Goodwill Industries International · Goodwill Exchange · Opportunity Accelerator · Prototype v2 · Not the live page</footer>
+<script>
+function jumpTo(id){
+  if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return;}
+  const el=document.getElementById(id); if(!el) return;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-96,behavior:'smooth'});
+}
+function switchTab(id){
+  const ids=['org','p1','p2','p3'];
+  document.querySelectorAll('.ptab').forEach((t,i)=>t.classList.toggle('on',ids[i]===id));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='panel-'+id));
+  const nav=document.querySelector('.phase-nav');
+  window.scrollTo({top:nav.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'});
+}
+function setTier(tier,btn){
+  document.querySelectorAll('.tier-btn').forEach(b=>b.classList.remove('on'));
+  (btn||event.target).classList.add('on');
+  const hints={ess:'Showing core adoption practices',hf:'Showing full Platinum practices',all:'Showing all criteria'};
+  document.getElementById('tier-hint').textContent=hints[tier];
+  document.querySelectorAll('.card').forEach(card=>{
+    if(tier==='all'){card.style.opacity='';card.style.pointerEvents='';return;}
+    const fade=(card.dataset[tier]==='na');
+    card.style.opacity=fade?'0.38':''; card.style.pointerEvents=fade?'none':'';
+  });
+}
+const navIds=['top','about','levels','intro','tools'];
+function markNav(){
+  let cur='top';
+  navIds.forEach(id=>{const el=document.getElementById(id); if(el&&el.getBoundingClientRect().top-120<=0) cur=id;});
+  document.querySelectorAll('.ex-nav a').forEach(a=>a.classList.toggle('on',a.dataset.target===cur));
+  document.getElementById('btt').classList.toggle('show',window.scrollY>300);
+}
+window.addEventListener('scroll',markNav); markNav();
+</script>
+</body>
+</html>
